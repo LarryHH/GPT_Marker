@@ -15,19 +15,15 @@ import { useStyles, HEADER_HEIGHT } from "./styles";
 const links = [
   {
     link: "/",
-    label: "bello",
+    label: "About",
   },
   {
     link: "/",
-    label: "shid",
+    label: "Pricing",
   },
   {
     link: "/",
-    label: "more linkgs",
-  },
-  {
-    link: "/",
-    label: "let sgoooo",
+    label: "Contact",
   },
 ];
 
