@@ -1,9 +1,10 @@
 import axios from 'axios';
 import { NextApiRequest, NextApiResponse } from 'next';
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === 'POST') {
-    const { apiKey, systemPrompt, userPrompt } = req.body;
+    const { apiKey, userPrompt, systemPrompt } = req.body;
 
     // Set up headers for the OpenAI API
     const headers = {
@@ -27,4 +28,5 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       console.error('Error generating response:', error);
       res.status(500).json({ error: 'Error generating response' });
     }
- 
+  }
+}
