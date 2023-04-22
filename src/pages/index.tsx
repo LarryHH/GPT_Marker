@@ -10,7 +10,7 @@ const Home: React.FC = (props: any) => {
   const { title, setTitle } = props;
 
   const [apiKey, setApiKey] = useState<string>("");
-  const [prompt, setPrompt] = useState<Prompt>({
+  const [prompt, setPrompt] = useState<typeof Prompt>({
     system: "",
     user: "",
   });
