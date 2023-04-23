@@ -10,7 +10,7 @@ const Home: React.FC = (props: any) => {
   const { title, setTitle } = props;
 
   const [apiKey, setApiKey] = useState<string>("");
-  const [prompt, setPrompt] = useState<typeof Prompt>({
+  const [prompt, setPrompt] = useState<any>({
     system: "",
     user: "",
   });
@@ -23,19 +23,17 @@ const Home: React.FC = (props: any) => {
     }));
   };
 
-  const handleClick = async () => {
-    setTitle(prompt.user)
-    // try {
-    //   const result = await axios.post("/api/generate-response", {
-    //     apiKey,
-    //     systemPrompt,
-    //     userPrompt,
-    //   });
-    //   setResponse(result.data.generated_text);
-    // } catch (error) {
-    //   console.error(`Error generating response: ${error}`);
-    // }
-  };
+  // const handleClick = async () => {
+  //   try {
+  //     const result = await axios.post("/api/generate-response", {
+  //       apiKey,
+  //       prompt
+  //     });
+  //     setResponse(result.data.generated_text);
+  //   } catch (error) {
+  //     console.error(`Error generating response: ${error}`);
+  //   }
+  // };
 
   return (
     <>
@@ -62,7 +60,7 @@ const Home: React.FC = (props: any) => {
             <Button
               sx={{ marginTop: "0.66rem" }}
               type="submit"
-              onClick={() => { handleClick() }}
+              // onClick={() => { handleClick() }}
             >
               Submit
             </Button>
