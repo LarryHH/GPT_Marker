@@ -49,4 +49,40 @@ export const useStyles = createStyles((theme) => ({
   linkLabel: {
     marginRight: rem(5),
   },
+
+  headerContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+    height: '100%',
+    width: '100%',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  
+  titleContainer: {
+    padding: '1rem',
+    display: 'flex',
+    flexDirection: 'column',
+    position: 'absolute',
+    left: '1rem',
+    paddingLeft: '0',
+    fontSize: '1.5rem',
+  },
+  
+  navContainer: {
+    paddingTop: '0',
+    display: 'flex',
+    flexDirection: 'column',
+    height: '100%',
+    width: '66.66%',
+  },
+
+  modalContainer: {
+    padding: '1rem',
+    display: 'flex',
+    flexDirection: 'column',
+    position: 'absolute',
+    right: '1rem',
+    paddingRight: '0',
+  }
 }));

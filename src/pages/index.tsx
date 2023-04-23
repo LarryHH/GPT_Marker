@@ -1,81 +1,19 @@
-import React, { useState } from "react";
-import axios from "axios";
-import styles from "../styles/Home.module.css";
-import { Textarea, Button, Navbar } from "@mantine/core";
-import type Prompt from "./index";
+import Prompt from "@/components/Prompts";
 import Header from "../components/Header";
+import styles from "../styles/Home.module.css";
 import Response from "@/components/Response";
 
 const Home: React.FC = (props: any) => {
-  const { title, setTitle } = props;
-
-  const [apiKey, setApiKey] = useState<string>("");
-  const [prompt, setPrompt] = useState<any>({
-    system: "",
-    user: "",
-  });
-  const [response, setResponse] = useState<string>("");
-
-  const handleChange = (k: string, v: string) => {
-    setPrompt((prev: any) => ({
-      ...prev,
-      [k]: v,
-    }));
-  };
-
-  // const handleClick = async () => {
-  //   try {
-  //     const result = await axios.post("/api/generate-response", {
-  //       apiKey,
-  //       prompt
-  //     });
-  //     setResponse(result.data.generated_text);
-  //   } catch (error) {
-  //     console.error(`Error generating response: ${error}`);
-  //   }
-  // };
-
+  const { title } = props;
   return (
     <>
       <Header title={title} />
       <div className={styles.container}>
-        <div className={styles.systemPrompt}>
-          <Textarea
-            id="system-prompt"
-            value={prompt.system}
-            label="System"
-            onChange={(e) => handleChange("system", e.target.value)}
-            sx={{ width: "100%" }}
-          />
-        </div>
-        <div className={styles.responseContainer}>
-          <div className={styles.userPrompt}>
-            <Textarea
-              id="user-prompt"
-              value={prompt.user}
-              label="User"
-              onChange={(e) => handleChange("user", e.target.value)}
-              sx={{ width: "100%" }}
-            />
-            <Button
-              sx={{ marginTop: "0.66rem" }}
-              type="submit"
-              // onClick={() => { handleClick() }}
-            >
-              Submit
-            </Button>
-          </div>
-          <div className={styles.response}>
-            <Textarea
-              id="response"
-              value={response}
-              label="Response"
-              onChange={(e) => {
-                setResponse(e.target.value);
-              }}
-              sx={{ width: "100%" }}
-            />
-          </div>
+        <Prompt name="system" width={100} />
+        <div className={styles.rightContainer}>
+          <Prompt name="user" width={100} showButton={true} />
+          <Response />
+          {/* <Prompt name="response" width={100} /> */}
         </div>
       </div>
     </>

@@ -1,41 +1,85 @@
 import React from 'react'
 import { Text, Title } from '@mantine/core'
+import { useStyles } from "./styles";
 
-const Response = ({ response }: { response: any}) => {
-  const data = [
-  {
-  title: 'abc',
-  text: 'shid'
-},
-  {
-  title: 'asfdasfd',
-  text: 'bxczbxxzbc'
-},
-  {
-  title: 'a23t332',
-  text: 'xcvncxvnvcn'
-},
-]
+interface ResponseProps {
+  response: any
+}
 
+const result = [
+  {
+    id: "/1",
+    text: "About",
+  },
+  {
+    id: "2/",
+    text: "Pricing",
+  },
+  {
+    id: "/3",
+    text: "Pricing",
+  },
+  {
+    id: "/1",
+    text: "About",
+  },
+  {
+    id: "2/",
+    text: "Pricing",
+  },
+  {
+    id: "/3",
+    text: "Pricing",
+  },
+  {
+    id: "/1",
+    text: "About",
+  },
+  {
+    id: "2/",
+    text: "Pricing",
+  },
+  {
+    id: "/3",
+    text: "Pricing",
+  },
+  {
+    id: "/1",
+    text: "About",
+  },
+  {
+    id: "2/",
+    text: "Pricing",
+  },
+  {
+    id: "/3",
+    text: "Pricing",
+  },
+];
 
-const content = data.map((res) => {
+const Response = ({ response }: ResponseProps) => {
+
+  const { classes } = useStyles()
+
+  const textChunks = result.map((item: any) => {
+    return (
+      <p className={classes.responseItem} key={item.id}>
+        {item.text}
+      </p>
+    );
+  });
+
   return (
-  <div key={res.title} style={{marginTop: '0.5rem'}}>
-    <Text weight={500}>
-      {res.title}
-    </Text>
-    <Text size="sm" color="dimmed">
-      {res.text}
-    </Text>
-  </div>
-  )
-})
-
-  return (
-    <>   
-    <Title order={2} sx={{marginBottom: '1rem'}}>System</Title>
-    <div>{content}</div>
-    </>
+    <>
+    <div className={classes.responseContainer}>
+      <span className={classes.responseLabel}>
+        Reponses
+      </span>
+      <div className={classes.responseArea}>
+        {textChunks}
+      </div>
+    </div>
+  </>
   )
 }
 

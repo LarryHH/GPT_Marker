@@ -7,10 +7,11 @@ import {
   Button,
   Burger,
   rem,
+  Modal,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-import styles from "../../styles/Home.module.css";
 import { useStyles, HEADER_HEIGHT } from "./styles";
+import ConfigModal from "../ConfigModal";
 
 const links = [
   {
@@ -30,7 +31,7 @@ const links = [
 const HeaderAction = (props: any) => {
   const { title } = props;
   const { classes } = useStyles();
-  const [opened, { toggle }] = useDisclosure(false);
+  const [burgerOpened, { burgerToggle }] = useDisclosure(false);
 
   const items = links.map((link) => {
     return (
@@ -45,16 +46,17 @@ const HeaderAction = (props: any) => {
     );
   });
 
+
   return (
     <Header height={HEADER_HEIGHT} sx={{ borderBottom: "1px solid #ddd" }}>
-      <div className={styles.headerContainer}>
-        <span className={styles.titleContainer}>{title}</span>
-        <div className={styles.navContainer}>
+      <div className={classes.headerContainer}>
+        <span className={classes.titleContainer}>{title}</span>
+        <div className={classes.navContainer}>
           <Container className={classes.inner} fluid>
             <Group>
               <Burger
-                opened={opened}
-                onClick={toggle}
+                opened={burgerOpened}
+                onClick={burgerToggle}
                 className={classes.burger}
                 size="sm"
               />
@@ -63,6 +65,9 @@ const HeaderAction = (props: any) => {
               {items}
             </Group>
           </Container>
+        </div>
+        <div className={classes.modalContainer}>
+          <ConfigModal/>
         </div>
       </div>
     </Header>
