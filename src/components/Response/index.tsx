@@ -3,7 +3,7 @@ import { Text, Title } from '@mantine/core'
 import { useStyles } from "./styles";
 
 interface ResponseProps {
-  response: any
+  response?: any
 }
 
 const result = [
