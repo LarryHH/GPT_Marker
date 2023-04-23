@@ -31,7 +31,7 @@ const links = [
 const HeaderAction = (props: any) => {
   const { title } = props;
   const { classes } = useStyles();
-  const [burgerOpened, { burgerToggle }] = useDisclosure(false);
+  const [burgerOpened, { toggle }] = useDisclosure(false);
 
   const items = links.map((link) => {
     return (
@@ -56,7 +56,7 @@ const HeaderAction = (props: any) => {
             <Group>
               <Burger
                 opened={burgerOpened}
-                onClick={burgerToggle}
+                onClick={toggle}
                 className={classes.burger}
                 size="sm"
               />
