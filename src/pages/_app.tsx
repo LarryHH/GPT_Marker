@@ -23,16 +23,10 @@ export default function App(props: AppProps) {
         withGlobalStyles
         withNormalizeCSS
         theme={{
-          /** Put your mantine theme override here */
-          colorScheme: "light",
           components: {
             Textarea: {
               styles: {
-                root: { height: "100%" },
-                wrapper: { height: "100%" },
-                input: { height: "calc(100% - 31px - 1rem)" },
                 label: { fontSize: rem(20), fontWeight: "bold" },
-                //todo: calc height relative to button, button margins, response size
               },
             },
           },

@@ -4,12 +4,14 @@ export const useStyles = createStyles((theme) => ({
 
     responseContainer: {
         padding: "1rem",
-        paddingTop: "0",
+        paddingTop: '0.5rem',
         borderRight: "1px solid #ddd",
         display: "flex",
         flexDirection: "column",
-        height: "40%",
+        height: "100%",
         width: "100%",
+        overflow: 'auto'
+        
     },
 
     responseLabel: {
@@ -27,7 +29,7 @@ export const useStyles = createStyles((theme) => ({
         paddingLeft: "calc(2.25rem / 3)",
         paddingRight: "calc(2.25rem / 3)",
         overflow: "auto",
-        height: "calc(100% - 31px - 1rem)"
+        height: "100%"
     },
 
     responseItem: {

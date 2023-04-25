@@ -1,76 +1,25 @@
 import React from 'react'
 import { Text, Title } from '@mantine/core'
 import { useStyles } from "./styles";
+import { useState, useEffect } from 'react';
 
-interface ResponseProps {
-  response?: any
-}
 
-const result = [
-  {
-    id: "/1",
-    text: "About",
-  },
-  {
-    id: "2/",
-    text: "Pricing",
-  },
-  {
-    id: "/3",
-    text: "Pricing",
-  },
-  {
-    id: "/1",
-    text: "About",
-  },
-  {
-    id: "2/",
-    text: "Pricing",
-  },
-  {
-    id: "/3",
-    text: "Pricing",
-  },
-  {
-    id: "/1",
-    text: "About",
-  },
-  {
-    id: "2/",
-    text: "Pricing",
-  },
-  {
-    id: "/3",
-    text: "Pricing",
-  },
-  {
-    id: "/1",
-    text: "About",
-  },
-  {
-    id: "2/",
-    text: "Pricing",
-  },
-  {
-    id: "/3",
-    text: "Pricing",
-  },
-];
 
-const Response = ({ response }: ResponseProps) => {
+const Response = (props: any) => {
 
+  const { data, setData } = props
   const { classes } = useStyles()
 
-  const textChunks = result.map((item: any) => {
+  const textChunks = data.response.map((item: any) => {
     return (
       <p className={classes.responseItem} key={item.id}>
-        {item.text}
+        {item.content}
       </p>
     );
   });
 
+
   return (
-    <>
     <div className={classes.responseContainer}>
       <span className={classes.responseLabel}>
         Reponses
@@ -79,7 +28,6 @@ const Response = ({ response }: ResponseProps) => {
         {textChunks}
       </div>
     </div>
-  </>
   )
 }
 

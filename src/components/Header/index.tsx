@@ -1,17 +1,17 @@
 import {
-  Menu,
+  Burger,
+  Button,
   Center,
-  Header,
   Container,
   Group,
-  Button,
-  Burger,
-  rem,
+  Header,
+  Menu,
   Modal,
+  rem,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-import { useStyles, HEADER_HEIGHT } from "./styles";
 import ConfigModal from "../ConfigModal";
+import { HEADER_HEIGHT, useStyles } from "./styles";
 
 const links = [
   {
@@ -29,7 +29,7 @@ const links = [
 ];
 
 const HeaderAction = (props: any) => {
-  const { title } = props;
+  const { title, apiKey, setApiKey } = props;
   const { classes } = useStyles();
   const [burgerOpened, { toggle }] = useDisclosure(false);
 
@@ -45,7 +45,6 @@ const HeaderAction = (props: any) => {
       </a>
     );
   });
-
 
   return (
     <Header height={HEADER_HEIGHT} sx={{ borderBottom: "1px solid #ddd" }}>
@@ -67,7 +66,7 @@ const HeaderAction = (props: any) => {
           </Container>
         </div>
         <div className={classes.modalContainer}>
-          <ConfigModal/>
+          <ConfigModal apiKey={apiKey} setApiKey={setApiKey} />
         </div>
       </div>
     </Header>
