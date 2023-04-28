@@ -2,18 +2,26 @@ import ButtonSubmitData from '@/components/ButtonSubmitData'
 import PromptSystem from '@/components/PromptSystem'
 import PromptUser from '@/components/PromptUser'
 import Response from '@/components/Response'
-import { useState } from 'react'
+import { ReactElement, useEffect, useState } from 'react'
 import Header from '../components/Header'
 import styles from '../styles/Home.module.css'
 
-const Home: React.FC = (props: any) => {
+const Home = (props: any): ReactElement => {
   const { title } = props
-  const [apiKey, setApiKey] = useState<string>(typeof window !== 'undefined' ? localStorage.api : '')
+  const [apiKey, setApiKey] = useState<string>('')
   const [data, setData] = useState<any>({
     user: '',
     system: '',
     response: [],
   })
+
+  useEffect(() => {
+    setApiKey(localStorage.api)
+    setData((prev: any) => ({
+      ...prev,
+      response: localStorage.response ? JSON.parse(localStorage.response) : [],
+    }))
+  }, [])
 
   return (
     <>

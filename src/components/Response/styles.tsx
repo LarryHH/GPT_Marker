@@ -1,6 +1,6 @@
-import { createStyles } from '@mantine/core'
+import { createStyles, rem } from '@mantine/core'
 
-export const useStyles = createStyles(() => ({
+export const useStyles = createStyles((theme) => ({
     responseContainer: {
         padding: '1rem',
         paddingTop: '0.5rem',
@@ -22,10 +22,6 @@ export const useStyles = createStyles(() => ({
     },
 
     responseArea: {
-        borderRadius: '0.25rem',
-        border: '0.0625rem solid #ced4da',
-        paddingLeft: 'calc(2.25rem / 3)',
-        paddingRight: 'calc(2.25rem / 3)',
         overflow: 'auto',
         height: '100%',
     },
@@ -36,6 +32,23 @@ export const useStyles = createStyles(() => ({
         padding: '0.6rem 0.6rem',
         '&:nth-of-type(2n)': {
             background: '#f7f7f7',
+        },
+    },
+
+    comment: {
+        padding: `${theme.spacing.lg} ${theme.spacing.xl}`,
+        marginTop: theme.spacing.sm,
+    },
+
+    body: {
+        paddingLeft: rem(54),
+        paddingTop: theme.spacing.sm,
+        fontSize: theme.fontSizes.sm,
+    },
+
+    content: {
+        '& > p:last-child': {
+            marginBottom: 0,
         },
     },
 }))

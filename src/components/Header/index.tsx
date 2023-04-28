@@ -1,5 +1,6 @@
 import { Burger, Container, Group, Header } from '@mantine/core'
 import { useDisclosure } from '@mantine/hooks'
+import { ReactElement } from 'react'
 import ConfigModal from '../ConfigModal'
 import { HEADER_HEIGHT, useStyles } from './styles'
 
@@ -18,7 +19,7 @@ const links = [
   },
 ]
 
-const HeaderAction = (props: any) => {
+const HeaderAction = (props: any): ReactElement => {
   const { title, apiKey, setApiKey } = props
   const { classes } = useStyles()
   const [burgerOpened, { toggle }] = useDisclosure(false)

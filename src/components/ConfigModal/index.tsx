@@ -1,22 +1,27 @@
 import { Alert, Box, Button, Group, Modal, TextInput } from '@mantine/core'
 import { useForm } from '@mantine/form'
 import { useDisclosure } from '@mantine/hooks'
-import { useState } from 'react'
+import { ReactElement, useEffect, useState } from 'react'
 import { CircleCheck, Settings } from 'tabler-icons-react'
 
-function ConfigModal(props: any) {
+const ConfigModal = (props: any): ReactElement => {
   const { apiKey, setApiKey } = props
   const [modalOpened, { open, close }] = useDisclosure(false)
   const [isAPIKeyValid, setIsAPIKeyValid] = useState(false)
   const form = useForm({
     initialValues: {
-      key: apiKey,
+      key: '',
     },
     validate: {
       key: (value) =>
         /^[a-zA-Z0-9\-]*$/.test(value) ? null : 'Invalid API Key',
     },
   })
+
+  useEffect(() => {
+    form.setFieldValue('key', apiKey)
+  }, [apiKey])
+
   const handleClick = () => {
     setIsAPIKeyValid(/^[a-zA-Z0-9\-]*$/.test(form.values.key) ? true : false)
     setApiKey(form.values.key)
@@ -29,6 +34,7 @@ function ConfigModal(props: any) {
         opened={modalOpened}
         onClose={close}
         title="ChatGPT 3.5 API Configuration"
+        centered
       >
         <Box maw={300} mx="auto">
           <form onSubmit={form.onSubmit((values) => console.log(values))}>

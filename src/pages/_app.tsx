@@ -4,7 +4,7 @@ import Head from 'next/head'
 import { useState } from 'react'
 import '../styles/globals.css'
 
-export default function App (props: AppProps) {
+const App = (props: AppProps) => {
   const { Component, pageProps } = props
   const [title, setTitle] = useState<string>('GPT Exam Marker')
 
@@ -36,3 +36,5 @@ export default function App (props: AppProps) {
     </>
   )
 }
+
+export default App

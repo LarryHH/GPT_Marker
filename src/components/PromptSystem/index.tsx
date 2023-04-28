@@ -1,7 +1,8 @@
 import { Textarea } from '@mantine/core'
+import { ReactElement } from 'react'
 import { useStyles } from './styles'
 
-function PromptSystem (props?: any) {
+const PromptSystem = (props?: any): ReactElement => {
   const { data, setData } = props
   const { classes } = useStyles()
 
