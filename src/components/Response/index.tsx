@@ -1,13 +1,8 @@
 import React from 'react'
-import { Text, Title } from '@mantine/core'
-import { useStyles } from "./styles";
-import { useState, useEffect } from 'react';
-
-
+import { useStyles } from './styles'
 
 const Response = (props: any) => {
-
-  const { data, setData } = props
+  const { data } = props
   const { classes } = useStyles()
 
   const textChunks = data.response.map((item: any) => {
@@ -15,9 +10,8 @@ const Response = (props: any) => {
       <p className={classes.responseItem} key={item.id}>
         {item.content}
       </p>
-    );
-  });
-
+    )
+  })
 
   return (
     <div className={classes.responseContainer}>

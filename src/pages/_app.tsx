@@ -1,13 +1,12 @@
-import { AppProps } from "next/app";
-import Head from "next/head";
-import { MantineProvider } from "@mantine/core";
-import { rem } from "@mantine/core";
-import { useState } from "react";
+import { MantineProvider, rem } from '@mantine/core'
+import { AppProps } from 'next/app'
+import Head from 'next/head'
+import { useState } from 'react'
 import '../styles/globals.css'
 
-export default function App(props: AppProps) {
-  const { Component, pageProps } = props;
-  const [title, setTitle] = useState<string>("GPT Exam Marker");
+export default function App (props: AppProps) {
+  const { Component, pageProps } = props
+  const [title, setTitle] = useState<string>('GPT Exam Marker')
 
   return (
     <>
@@ -26,7 +25,7 @@ export default function App(props: AppProps) {
           components: {
             Textarea: {
               styles: {
-                label: { fontSize: rem(20), fontWeight: "bold" },
+                label: { fontSize: rem(20), fontWeight: 'bold' },
               },
             },
           },
@@ -35,5 +34,5 @@ export default function App(props: AppProps) {
         <Component {...pageProps} title={title} setTitle={setTitle} />
       </MantineProvider>
     </>
-  );
+  )
 }

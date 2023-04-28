@@ -1,16 +1,16 @@
-import { Textarea } from "@mantine/core";
-import { useStyles } from "./styles";
+import { Textarea } from '@mantine/core'
+import { useStyles } from './styles'
 
-function PromptUser(props?: any) {
-  const { data, setData } = props;
-  const { classes } = useStyles();
+function PromptUser (props?: any) {
+  const { data, setData } = props
+  const { classes } = useStyles()
 
   const handleChange = (k: string, v: string) => {
     setData((prev: any) => ({
       ...prev,
       [k]: v,
-    }));
-  };
+    }))
+  }
 
   return (
     <>
@@ -20,12 +20,12 @@ function PromptUser(props?: any) {
           id="User"
           value={data.user}
           label="User"
-          onChange={(e) => handleChange("user", e.target.value)}
-          sx={{ width: "100%" }}
+          onChange={(e) => handleChange('user', e.target.value)}
+          sx={{ width: '100%' }}
         />
       </div>
     </>
-  );
+  )
 }
 
-export default PromptUser;
+export default PromptUser

@@ -1,46 +1,43 @@
-import {
-  createStyles,
-  rem
-} from "@mantine/core"
+import { createStyles, rem } from '@mantine/core'
 
-export const HEADER_HEIGHT = rem(60);
+export const HEADER_HEIGHT = rem(60)
 
 export const useStyles = createStyles((theme) => ({
   inner: {
     height: HEADER_HEIGHT,
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 
   links: {
-    [theme.fn.smallerThan("sm")]: {
-      display: "none",
+    [theme.fn.smallerThan('sm')]: {
+      display: 'none',
     },
   },
 
   burger: {
-    [theme.fn.largerThan("sm")]: {
-      display: "none",
+    [theme.fn.largerThan('sm')]: {
+      display: 'none',
     },
   },
 
   link: {
-    display: "block",
+    display: 'block',
     lineHeight: 1,
     padding: `${rem(8)} ${rem(12)}`,
     borderRadius: theme.radius.sm,
-    textDecoration: "none",
+    textDecoration: 'none',
     color:
-      theme.colorScheme === "dark"
+      theme.colorScheme === 'dark'
         ? theme.colors.dark[0]
         : theme.colors.gray[7],
     fontSize: theme.fontSizes.sm,
     fontWeight: 500,
 
-    "&:hover": {
+    '&:hover': {
       backgroundColor:
-        theme.colorScheme === "dark"
+        theme.colorScheme === 'dark'
           ? theme.colors.dark[6]
           : theme.colors.gray[0],
     },
@@ -58,7 +55,7 @@ export const useStyles = createStyles((theme) => ({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  
+
   titleContainer: {
     padding: '1rem',
     display: 'flex',
@@ -68,7 +65,7 @@ export const useStyles = createStyles((theme) => ({
     paddingLeft: '0',
     fontSize: '1.5rem',
   },
-  
+
   navContainer: {
     paddingTop: '0',
     display: 'flex',
@@ -84,5 +81,5 @@ export const useStyles = createStyles((theme) => ({
     position: 'absolute',
     right: '1rem',
     paddingRight: '0',
-  }
-}));
+  },
+}))

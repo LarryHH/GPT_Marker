@@ -1,7 +1,7 @@
-import { Textarea } from "@mantine/core";
-import { useStyles } from "./styles";
+import { Textarea } from '@mantine/core'
+import { useStyles } from './styles'
 
-function PromptSystem(props?: any) {
+function PromptSystem (props?: any) {
   const { data, setData } = props
   const { classes } = useStyles()
 
@@ -10,7 +10,7 @@ function PromptSystem(props?: any) {
       ...prev,
       [k]: v,
     }))
-  };
+  }
 
   return (
     <>
@@ -19,17 +19,17 @@ function PromptSystem(props?: any) {
           id="System"
           value={data.system}
           label="System"
-          onChange={(e) => handleChange("system", e.target.value)}
+          onChange={(e) => handleChange('system', e.target.value)}
           sx={{ width: '100%' }}
           classNames={{
             wrapper: classes.wrapper,
             root: classes.root,
-            input: classes.input
+            input: classes.input,
           }}
         />
       </div>
     </>
-  );
+  )
 }
 
-export default PromptSystem;
+export default PromptSystem
