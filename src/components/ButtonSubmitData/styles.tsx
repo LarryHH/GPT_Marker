@@ -1,11 +1,11 @@
-import { createStyles } from "@mantine/core";
+import { createStyles } from '@mantine/core'
 
-export const useStyles = createStyles((theme) => ({
+export const useStyles = createStyles(() => ({
   button: {
-    margin: "0 1rem",
+    margin: '0 1rem',
   },
   buttonRoot: {
     width: '100%',
-    marginTop: '0 !important'
-  }
-}));
+    marginTop: '0 !important',
+  },
+}))

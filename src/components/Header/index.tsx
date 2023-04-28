@@ -1,37 +1,28 @@
-import {
-  Burger,
-  Button,
-  Center,
-  Container,
-  Group,
-  Header,
-  Menu,
-  Modal,
-  rem,
-} from "@mantine/core";
-import { useDisclosure } from "@mantine/hooks";
-import ConfigModal from "../ConfigModal";
-import { HEADER_HEIGHT, useStyles } from "./styles";
+import { Burger, Container, Group, Header } from '@mantine/core'
+import { useDisclosure } from '@mantine/hooks'
+import { ReactElement } from 'react'
+import ConfigModal from '../ConfigModal'
+import { HEADER_HEIGHT, useStyles } from './styles'
 
 const links = [
   {
-    link: "/",
-    label: "About",
+    link: '/',
+    label: 'About',
   },
   {
-    link: "/",
-    label: "Pricing",
+    link: '/',
+    label: 'Pricing',
   },
   {
-    link: "/",
-    label: "Contact",
+    link: '/',
+    label: 'Contact',
   },
-];
+]
 
-const HeaderAction = (props: any) => {
-  const { title, apiKey, setApiKey } = props;
-  const { classes } = useStyles();
-  const [burgerOpened, { toggle }] = useDisclosure(false);
+const HeaderAction = (props: any): ReactElement => {
+  const { title, apiKey, setApiKey } = props
+  const { classes } = useStyles()
+  const [burgerOpened, { toggle }] = useDisclosure(false)
 
   const items = links.map((link) => {
     return (
@@ -43,11 +34,11 @@ const HeaderAction = (props: any) => {
       >
         {link.label}
       </a>
-    );
-  });
+    )
+  })
 
   return (
-    <Header height={HEADER_HEIGHT} sx={{ borderBottom: "1px solid #ddd" }}>
+    <Header height={HEADER_HEIGHT} sx={{ borderBottom: '1px solid #ddd' }}>
       <div className={classes.headerContainer}>
         <span className={classes.titleContainer}>{title}</span>
         <div className={classes.navContainer}>
@@ -70,7 +61,7 @@ const HeaderAction = (props: any) => {
         </div>
       </div>
     </Header>
-  );
-};
+  )
+}
 
-export default HeaderAction;
+export default HeaderAction
